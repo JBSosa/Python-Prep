@@ -1,10 +1,16 @@
 class listaNumero:
     def __init__(self,lista):
-        self.lista=lista
+        if type(lista)!=list:
+            raise ValueError('El tipo de variable no es una lista.')
+        elif listaNumero==[]:
+            raise ValueError('Se ingresó una lista vacía.')
+        else:
+            self.lista=lista
     def es_primo(self):
+        listaTrue=[]
         for i in self.lista:
-            divisor=1
             primo=True
+            divisor=1
             while divisor<=i:
                 if i<=1:
                     primo=False
@@ -14,13 +20,15 @@ class listaNumero:
                     break
                 divisor+=1
             if primo==True:
+                listaTrue.append(True)
                 print("El número {} es primo.".format(i))
             else:
+                listaTrue.append(False)
                 print("El número {} no es primo.".format(i))
+        return listaTrue
     def celsius_farenheit_kelvin(self,origen,destino):
         lista=self.lista
         for i in lista:
-            resultado=0
             if origen==destino:
                 resultado=i
             elif origen=="C" and destino=="F":
@@ -35,6 +43,8 @@ class listaNumero:
                 resultado=lista[i]-273.15
                 if destino=="F":
                     resultado=(resultado*(9/5))+32
+            else:
+                raise ValueError('Datos erróneos, se espera C, K, o F como variables de origen/destino.')
             print("{} grado {} es igual a {} grados {}".format(i,origen,resultado,destino))
     def factorial(self):
         lista=self.lista
@@ -53,8 +63,7 @@ class listaNumero:
                 print('No se admiten números no enteros.')
             elif i<0:
                 i="inválido"
-                print('No se aceptan números negativos')
-            
+                print('No se aceptan números negativos')  
     def mas_repetido(self):
         lista=self.lista
         posicion=0
@@ -69,3 +78,4 @@ class listaNumero:
             print('El objeto no es una lista.')
         else:
             print('No hay elementos repetidos.')
+        return elemento_mas_repetido
