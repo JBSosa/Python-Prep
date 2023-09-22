@@ -28,6 +28,7 @@ class listaNumero:
         return listaTrue
     def celsius_farenheit_kelvin(self,origen,destino):
         lista=self.lista
+        listaResultado=[]
         for i in lista:
             if origen==destino:
                 resultado=i
@@ -45,9 +46,12 @@ class listaNumero:
                     resultado=(resultado*(9/5))+32
             else:
                 raise ValueError('Datos erróneos, se espera C, K, o F como variables de origen/destino.')
+            listaResultado.append(resultado)
             print("{} grado {} es igual a {} grados {}".format(i,origen,resultado,destino))
+        return listaResultado
     def factorial(self):
         lista=self.lista
+        listaResultado=[]
         for i in lista:
             inicial=i
             if i==1:
@@ -63,7 +67,9 @@ class listaNumero:
                 print('No se admiten números no enteros.')
             elif i<0:
                 i="inválido"
-                print('No se aceptan números negativos')  
+                print('No se aceptan números negativos')
+            listaResultado.append(i)
+        return listaResultado
     def mas_repetido(self):
         lista=self.lista
         posicion=0
